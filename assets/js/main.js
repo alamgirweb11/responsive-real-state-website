@@ -87,6 +87,34 @@ function scrollUp(){
 window.addEventListener('scroll', scrollUp);
 
 /*=============== DARK LIGHT THEME ===============*/ 
+const themeBtn = document.getElementById('theme-button')
+const darkTheme = 'dark-theme'
+const iconTheme = 'bx-sun'
 
+// selected mode hold, when page reloaded
+const selectedTheme = localStorage.getItem('selected-theme')
+const selectedIcon = localStorage.getItem('selected-icon')
+
+// current theme that the interface has by validating the dark-theme class
+const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light'
+const getCurrentIcon = () => themeBtn.classList.contains(iconTheme) ? 'bx bx-moon' : 'bx bx-sun'
+
+// validate theme if the user previously choose the theme
+if (selectedTheme) {
+   document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
+   themeBtn.classList[selectedIcon === 'bx bx-moon' ? 'add' : 'remove'](iconTheme)
+}
+
+// activate/deactivate the theme manually with the button
+themeBtn.addEventListener('click', () => {
+  // add or remove the dark icon
+  console.log('working')
+  document.body.classList.toggle(darkTheme)
+  themeBtn.classList.toggle(iconTheme)
+
+  // save the theme and the current icon that the user choose
+  localStorage.setItem('selected-theme', getCurrentTheme())
+  localStorage.setItem('selected-icon', getCurrentIcon())
+}) 
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
