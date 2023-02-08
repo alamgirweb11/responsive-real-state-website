@@ -172,7 +172,8 @@ body.dark-theme{
 /*=============== REUSABLE CSS CLASSES ===============*/
 .container {
   max-width: 1024px;
-  margin: auto;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
 }
 
 .grid {
@@ -218,6 +219,7 @@ body.dark-theme{
    display: flex;
    justify-content: space-between;
    align-items: center;
+   padding: 0.8rem 0;
 }
 
 .nav__logo{
